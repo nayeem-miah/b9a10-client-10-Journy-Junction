@@ -1,4 +1,62 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContextProvider";
+import Swal from "sweetalert2";
+
 const AddTouristSport = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const handleAddData = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const country_Name = form.country_Name.value;
+    const tourists_spot_name = form.tourists_spot_name.value;
+    const seasonality = form.seasonality.value;
+    const location = form.location.value;
+    const email = form.email.value;
+    const userName = form.userName.value;
+    const totaVisitorsPerYear = form.totaVisitorsPerYear.value;
+    const travel_time = form.travel_time.value;
+    const average_cost = form.average_cost.value;
+    const description = form.description.value;
+
+    const newTourist = {
+      image,
+      country_Name,
+      tourists_spot_name,
+      seasonality,
+      location,
+      email,
+      userName,
+      totaVisitorsPerYear,
+      travel_time,
+      average_cost,
+      description,
+    };
+    console.log(newTourist);
+    fetch("http://localhost:5000/tourist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newTourist),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "add data successful",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+
+        form.reset();
+      });
+  };
   return (
     <div className="min-h-[calc(100vh-250px)]">
       <div className=" pt-10 animate__animated animate__slideInDown">
@@ -15,9 +73,7 @@ const AddTouristSport = () => {
             </p>
           </div>
           {/* form */}
-          <form
-          //    onSubmit={handleAddProduct}
-          >
+          <form onSubmit={handleAddData}>
             <div className="flex gap-8 ">
               <div className="flex-1">
                 <label className="block mb-2 dark:text-white">image</label>
@@ -26,6 +82,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="image"
                   name="image"
+                  required
                 />
 
                 <label className="block mt-4 mb-2 dark:text-white">
@@ -37,6 +94,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="country_Name"
                   name="country_Name"
+                  required
                 />
 
                 <label className="block mt-4 mb-2 dark:text-white">
@@ -47,6 +105,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="tourists_spot_name"
                   name="tourists_spot_name"
+                  required
                 />
 
                 <label className="block mt-4 mb-2 dark:text-white">
@@ -57,6 +116,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="seasonality"
                   name="seasonality"
+                  required
                 />
 
                 <label className="block mt-4 mb-2 dark:text-white">
@@ -67,6 +127,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="location"
                   name="location"
+                  required
                 />
               </div>
               {/* Right side */}
@@ -75,8 +136,10 @@ const AddTouristSport = () => {
                 <input
                   className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                   type="email"
+                  defaultValue={user.email}
                   placeholder="Enter Email"
                   name="email"
+                  required
                 />
                 <label className="block mb-2 mt-4 dark:text-white">
                   User Name
@@ -85,8 +148,9 @@ const AddTouristSport = () => {
                   className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                   type="text"
                   placeholder="user Name"
-                  id="type"
+                  defaultValue={user.displayName}
                   name="userName"
+                  required
                 />
 
                 <label className="block mt-4 mb-2 dark:text-white">
@@ -97,6 +161,7 @@ const AddTouristSport = () => {
                   type="number"
                   placeholder="total Visitors PerYear"
                   name="totaVisitorsPerYear"
+                  required
                 />
                 <label className="block mt-4 mb-2 dark:text-white">
                   travel_time
@@ -106,6 +171,7 @@ const AddTouristSport = () => {
                   type="text"
                   placeholder="travel_time"
                   name="travel_time"
+                  required
                 />
                 <label className="block mt-4 mb-2 dark:text-white">
                   average_cost
@@ -115,6 +181,7 @@ const AddTouristSport = () => {
                   type="number"
                   placeholder="average_cost"
                   name="average_cost"
+                  required
                 />
               </div>
             </div>
@@ -126,6 +193,7 @@ const AddTouristSport = () => {
               type="text"
               placeholder="description"
               name="description"
+              required
             />
             <input
               className="px-4 w-full py-4 mt-4 rounded hover:bg-[#ec0a4a]  bg-purple-600 duration-200 text-white cursor-pointer font-semibold"

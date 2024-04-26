@@ -36,12 +36,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/myList"> My Lists</NavLink>
       </li>
-
-      {/* {!user && (
-        <li>
-          <NavLink to="/register">Register</NavLink>
-        </li>
-      )} */}
     </>
   );
   return (
@@ -77,9 +71,14 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{nabLinks}</ul>
       </div>
       <div className="navbar-end">
-        <div className="relative md:border-l flex items-center  justify-end w-full md:w-auto pl-5 ">
+        <div className="relative md:border-l flex items-center  justify-end w-full md:w-auto pl-3 ">
           <div className=" w-[50px]"></div>
-
+          {!user && (
+            <button className="border-2 p-1 text-white bg-[#FF497C] rounded border-[#FF497C] mr-5">
+              {" "}
+              <NavLink to="/register">Register</NavLink>
+            </button>
+          )}
           {user ? (
             <button
               onClick={() => setOpen(!open)}

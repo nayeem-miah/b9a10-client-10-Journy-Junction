@@ -59,7 +59,7 @@ const Register = () => {
       {/* <pageTitle title={"Register page | Our country"}></pageTitle> */}
       
 
-      <div className="hero min-h-screen bg-base-200 bg-base-200 px-1] lg:px-10">
+      <div className="hero min-h-screen bg-base-200  px-1] lg:px-10">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold animate__animated animate__bounce text-blue-800">

@@ -1,7 +1,27 @@
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContextProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  // const {user} = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const [open, setOpen] = useState();
+  const handleLogout = () => {
+    logout()
+      .then((result) => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "logOut successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const nabLinks = (
     <>
       <li>
@@ -51,21 +71,18 @@ const Navbar = () => {
             {nabLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">My dream Country</a>
+        <a className="btn btn-ghost text-xl text-green-600">My dream Country</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{nabLinks}</ul>
       </div>
       <div className="navbar-end">
         <div className="relative md:border-l flex items-center  justify-end w-full md:w-auto pl-5 ">
-          <div className=" w-[50px]">
-          
-          </div>
+          <div className=" w-[50px]"></div>
 
-          {/* {
-          user ? (
+          {user ? (
             <button
-              onClick={() => setUserOpen(!userOpen)}
+              onClick={() => setOpen(!open)}
               className="border-2 border-[#FF497C] rounded-full w-[40px]"
             >
               <img
@@ -76,35 +93,28 @@ const Navbar = () => {
             </button>
           ) : (
             <Link
-              to={"/signIn"}
+              to={"/login"}
               className="bg-[#FF497C] hover:bg-[#ab3154]  duration-200 text-white font-bold px-4 xl:px-6 py-1 rounded"
             >
               Login
             </Link>
-          )} */}
+          )}
 
-          {/* user Menu */}
-            <Link
-              to={"/login"}
-              className="bg-[#562733] hover:bg-[#ca0cca]  duration-200 text-white font-bold px-4 xl:px-6 py-1 rounded"
-            >
-              Login
-            </Link>
-          {/* <div
+          <div
             className={`absolute text-center ${
-              userOn ? "block" : "hidden"
+              open ? "block" : "hidden"
             } flex flex-col justify-center items-center gap-4  shadow-lg bg-white dark:bg-[#120505] px-8 py-4 top-16 dark:text-white z-50`}
           >
             <p className="text-lg font-semibold">{user?.displayName}</p>
             <p className="text-lg font-semibold">{user?.email}</p>
 
             <button
-              onClick={() => handleLogOut()}
+              onClick={() => handleLogout()}
               className="bg-[#FF497C] hover:bg-[#ab3154] duration-200 text-white font-bold px-4 xl:px-6 py-1 rounded cursor-pointer"
             >
               logout
             </button>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

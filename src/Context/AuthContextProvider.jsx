@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import {
-    GithubAuthProvider,
-    GoogleAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -24,7 +24,6 @@ const AuthContextProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  
   // sign in user
   const logIn = (email, password) => {
     setLoading(true);
@@ -43,16 +42,26 @@ const AuthContextProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
-
-
-
-
-    //  sign out
-    const logout = ()=>{
-        setLoading(true)
-        return signOut(auth);
-    }
-  const authInfo = {
+  //  sign out
+  const logout = () => {
+    // setLoading(true)
+    return signOut(auth);
+  };
+ 
+  // onAuthStateChanged
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        // console.log("Inner subscribe 4")
+        console.log(user)
+        setLoading(false)
+        setUser(currentUser);
+    });
+    
+    return () => {
+        unsubscribe();
+    };
+}, []);
+const authInfo = {
     user,
     setUser,
     createUser,
@@ -60,23 +69,9 @@ const AuthContextProvider = ({ children }) => {
     logIn,
     googleLogin,
     githubLogin,
-    logout
+    logout,
   };
 
-  // onAuthStateChanged
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-        setLoading(false);
-      } else {
-        setUser(null);
-      }
-    });
-    return () => {
-      unSubscribe();
-    };
-  });
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

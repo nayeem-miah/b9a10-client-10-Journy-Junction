@@ -20,6 +20,7 @@ const Navbar = () => {
       })
       .catch((error) => {
         console.error(error);
+        setOpen(false);
       });
   };
   const nabLinks = (
@@ -31,7 +32,8 @@ const Navbar = () => {
         <NavLink to="/allTourists">All Tourists Spot</NavLink>
       </li>
       <span>
-        {user && (
+        {
+        user && (
           <li>
             <NavLink to="/addTourists"> Add Tourists Spot</NavLink>
           </li>

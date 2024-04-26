@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 import AddTouristSport from "../pages/AddTouristSport/AddTouristSport";
 import MyList from "../pages/MyLIst/MyList";
+import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 // import Login from "./pages/Home/Login";
 
 const Route = createBrowserRouter([
@@ -25,11 +26,19 @@ const Route = createBrowserRouter([
       },
       {
         path: "/addTourists",
-        element: <AddTouristSport></AddTouristSport>,
+        element: (
+          <PrivetRoute>
+            <AddTouristSport></AddTouristSport>
+          </PrivetRoute>
+        ),
       },
       {
-        path: '/myList',
-        element: <MyList></MyList>
+        path: "/myList",
+        element: (
+          <PrivetRoute>
+            <MyList></MyList>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/login",

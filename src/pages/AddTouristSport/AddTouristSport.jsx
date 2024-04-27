@@ -85,17 +85,38 @@ const AddTouristSport = () => {
                   required
                 />
 
-                <label className="block mt-4 mb-2 dark:text-white">
+                <label
+                  className="block mt-4 mb-2 dark:text-white"
+                  htmlFor="brand"
+                >
                   country_Name
                 </label>
-
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
+                <select
                   type="text"
-                  placeholder="country_Name"
+                  className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
+                  placeholder="select country_Name"
                   name="country_Name"
                   required
-                />
+                >
+                  <option value="Bangladesh" selected>
+                    Bangladesh
+                  </option>
+                  <option value="Thailand" selected>
+                    Thailand
+                  </option>
+                  <option value="Indonesia" selected>
+                    Indonesia
+                  </option>
+                  <option value="Malaysia" selected>
+                    Malaysia
+                  </option>
+                  <option value="Vietnam" selected>
+                    Vietnam
+                  </option>
+                  <option value="Cambodia" selected>
+                    Cambodia
+                  </option>
+                </select>
 
                 <label className="block mt-4 mb-2 dark:text-white">
                   tourists_spot_name

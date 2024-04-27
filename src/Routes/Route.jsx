@@ -52,6 +52,7 @@ const Route = createBrowserRouter([
             <MyList></MyList>
           </PrivetRoute>
         ),
+        loader: ()=>fetch('http://localhost:5000/tourist')
       },
       {
         path: "/login",

@@ -49,7 +49,7 @@ const Card = ({ data }) => {
               <FaDollarSign></FaDollarSign>
             </p>
           </div>
-          <p>{description.slice(0, 50)}</p>
+          <p>{description.slice(0, 50)} </p>
           <div className="card-actions justify-end border-t-2 pt-3">
             <Link to={`/details/${_id}`} className="btn btn-primary">
               View Details

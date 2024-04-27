@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import PageTitle from "../MyLIst/PageTitle";
+
 const Login = () => {
   const { logIn, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
@@ -83,7 +85,8 @@ const Login = () => {
 
   return (
     <div className="min-h-[calc(100vh-250px)]">
-      {/* <pageTitle title={"Register page | Our country"}></pageTitle> */}
+    
+      <PageTitle title={'Login page | MY dream Country'}></PageTitle>
 
       <div className="hero min-h-screen bg-base-200 bg-base-200 px-1] lg:px-10">
         <div className="hero-content flex-col lg:flex-row-reverse">

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { BsEyeSlashFill } from "react-icons/bs";
 import { IoEye } from "react-icons/io5";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import PageTitle from "../MyLIst/PageTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -56,7 +57,7 @@ const Register = () => {
   };
   return (
     <div className="min-h-[calc(100vh-250px)]">
-      {/* <pageTitle title={"Register page | Our country"}></pageTitle> */}
+      <PageTitle title={"Register page | MY dream Country"}></PageTitle>
       
 
       <div className="hero min-h-screen bg-base-200  px-1] lg:px-10">

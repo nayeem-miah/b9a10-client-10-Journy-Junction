@@ -20,16 +20,22 @@ const Route = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/tourist')
+        loader: () => fetch("http://localhost:5000/tourist"),
       },
       {
-        path: '/details/:id',
-        element: <ViewDetails></ViewDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/tourist/${params._id}`)
+        path: "/details/:id",
+        element: (
+          <PrivetRoute>
+            <ViewDetails></ViewDetails>
+          </PrivetRoute>
+
+        ),
+        loader:({params})=>fetch(`http://localhost:5000/newtourist/${params.id}`)
       },
       {
         path: "/allTourists",
         element: <AllTouristsSpot></AllTouristsSpot>,
+        loader: () => fetch("http://localhost:5000/tourist")
       },
       {
         path: "/addTourists",
@@ -55,7 +61,6 @@ const Route = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-      
     ],
   },
 ]);

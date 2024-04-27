@@ -1,20 +1,23 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Card from "../../Components/Cards/Card";
+import Askquesation from "../../Components/Askquesation";
+import PageTitle from "../MyLIst/PageTitle";
 
 const Home = () => {
   const touristData = useLoaderData();
-  console.log(touristData);
+  // console.log(touristData);
   const items = touristData.slice(0,6);
-  console.log(items);
+  // console.log(items);
   return (
     <div className="min-h-[calc(100vh-250px)] px-5">
+        <PageTitle title={'Home page | MY dream Country'}></PageTitle>
       <div className="">
         <Header></Header>
       </div>
       <div className="my-10">
         <h2 className="text-4xl my-5 text-center">
-          Tourists Spots : {touristData.length}
+          Tourists Spots 
         </h2>
         <p className="text-center">
           A tourist spot, also referred to as a tourist attraction or
@@ -42,6 +45,10 @@ const Home = () => {
         items.map(data=><Card key={data._id} data={data}></Card> )
       }
      </div>
+   <div className="my-10 py-4 px-2 rounded-lg bg-slate-700">
+   <h2 className='text-4xl text-center my-5'>Asking Question ?</h2>
+   <Askquesation></Askquesation>
+   </div>
     </div>
   );
 };

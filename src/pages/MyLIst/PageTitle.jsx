@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const pageTitle = ({title}) => {
+const PageTitle = ({title}) => {
     return (
         <HelmetProvider>
         <Helmet>
@@ -10,4 +10,4 @@ const pageTitle = ({title}) => {
     );
 };
 
-export default pageTitle;
+export default PageTitle;

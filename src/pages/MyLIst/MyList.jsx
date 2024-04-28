@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PageTitle from "./PageTitle";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import { data } from "autoprefixer";
 
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
@@ -15,14 +16,15 @@ const MyList = () => {
         setUsers(data);
       });
   }, [user]);
+//   console.log(data);
   return (
     <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp">
       <PageTitle title={"My List | MY dream Country"}></PageTitle>
-      <h2 className="text-4xl text-center text-purple-500 my-6">
+      <h2 className="text-4xl text-center text-purple-500 animate__animated animate__bounce my-6">
         Tourist Sport Information Table
       </h2>
       <div>
-        <div className="overflow-x-auto border p-5 px-10">
+        <div className="overflow-x-auto border p-5 px-10 animate__animated animate__slideInLeft">
           <table className="table table-xs">
             <thead>
               <tr>
@@ -48,7 +50,7 @@ const MyList = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((info, i=0) => (
+              {users.map((info, i = 0) => (
                 <tr key={info._id}>
                   <th className="text-xl ">{(i = i + 1)}</th>
                   <td className="text-xl">{info.email}</td>
@@ -65,9 +67,11 @@ const MyList = () => {
                   <td className="text-xl cursor-pointer hover:underline hover:text-blue-600 lg:ml-8 ">
                     Edit
                   </td>
-                  <td className="text-xl cursor-pointer  lg:ml-7  hover:underline hover:text-blue-600">
-                    X
-                  </td>
+                  <Link>
+                    <td className="text-xl cursor-pointer  lg:ml-7  hover:underline hover:text-blue-600">
+                      X
+                    </td>
+                  </Link>
                 </tr>
               ))}
             </tbody>

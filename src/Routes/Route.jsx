@@ -9,6 +9,7 @@ import AddTouristSport from "../pages/AddTouristSport/AddTouristSport";
 import MyList from "../pages/MyLIst/MyList";
 import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
+import UpdatedPage from "../Components/UpdatedPage/UpdatedPage";
 
 const Route = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const Route = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: '/updated',
+        element: <UpdatedPage></UpdatedPage>
+      }
     ],
   },
 ]);

@@ -2,13 +2,48 @@ import { Link } from "react-router-dom";
 import PageTitle from "./PageTitle";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
-import { data } from "autoprefixer";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
   const [users, setUsers] = useState([]);
-  //   console.log(user);
-  useEffect(() => {
+  
+  const handleDelete=id=>{
+    console.log('delete ',id);
+    // are you sure
+    fetch(`http://localhost:5000/myList/${id}`,{
+        method: 'DELETE',
+    })
+    .then(res=> res.json())
+    .then(data=>{
+        if(data.deletedCount>0){
+            Swal.fire({
+                title: "Are you sure?",
+                text: "this form is deleted",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                  });
+                }
+              });
+            const remaining = users.filter(info=>info._id !== id)
+            setUsers(remaining)
+        }
+    })
+
+
+  }
+    useEffect(() => {
     fetch(`http://localhost:5000/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
@@ -44,7 +79,7 @@ const MyList = () => {
                   Details{" "}
                 </th>
                 <th className="font-bold text-xl text-start underline">Edit</th>
-                <th className="font-bold text-xl text-start underline">
+                <th className="font-bold text-xl  text-start underline">
                   Delete
                 </th>
               </tr>
@@ -65,13 +100,13 @@ const MyList = () => {
                     View Details
                   </Link>
                   <td className="text-xl cursor-pointer hover:underline hover:text-blue-600 lg:ml-8 ">
-                    Edit
+                    <FaEdit></FaEdit>
                   </td>
-                  <Link>
-                    <td className="text-xl cursor-pointer  lg:ml-7  hover:underline hover:text-blue-600">
-                      X
-                    </td>
-                  </Link>
+                 
+                    <button onClick={()=>{handleDelete(info._id)}} className="text-xl cursor-pointer  lg:ml-7   hover:underline hover:text-red-600">
+                     <MdDelete></MdDelete>
+                    </button>
+                 
                 </tr>
               ))}
             </tbody>

@@ -7,7 +7,6 @@ import PageTitle from "../../pages/MyLIst/PageTitle";
 const ViewDetails = () => {
   const details = useLoaderData();
   console.log(details);
-//   const { id } = useParams;
 
   const {
     image,

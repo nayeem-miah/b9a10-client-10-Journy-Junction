@@ -33,7 +33,7 @@ const AddTouristSport = () => {
       average_cost,
       description,
     };
-    console.log(newTourist);
+    // console.log(newTourist);
     fetch("http://localhost:5000/tourist", {
       method: "POST",
       headers: {

@@ -1,8 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import img from "../assets/ask.jpg";
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 const Askquesation = () => {
+    useEffect(()=>{
+        Aos.init();
+      },[])
   return (
-    <div className="grid grid-cols-2 gap-6 my-10">
+    <div className="grid grid-cols-2 gap-6 my-10 "data-aos="fade-up-left"  data-aos-duration="2000">
       <div>
         <img src={img} className="rounded" alt="" />
       </div>

@@ -42,7 +42,7 @@ const Card = ({ data }) => {
           <div className="flex ">
             <p className="flex items-center gap-4">
               <IoMdEye></IoMdEye>
-              {totaVisitorsPerYear}
+              {totaVisitorsPerYear}K
             </p>
             <p className="flex items-center ">
               <FaDollarSign></FaDollarSign> : {average_cost}

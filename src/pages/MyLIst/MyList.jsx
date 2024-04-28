@@ -1,10 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PageTitle from "./PageTitle";
-
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthContextProvider";
 
 const MyList = () => {
-  const users = useLoaderData();
-  console.log(users);
+  const { user } = useContext(AuthContext) || {};
+  const [users, setUsers] = useState([]);
+  //   console.log(user);
+  useEffect(() => {
+    fetch(`http://localhost:5000/myList/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUsers(data);
+      });
+  }, [user]);
   return (
     <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp">
       <PageTitle title={"My List | MY dream Country"}></PageTitle>
@@ -12,7 +22,7 @@ const MyList = () => {
         Tourist Sport Information Table
       </h2>
       <div>
-        <div className="overflow-x-auto border p-5">
+        <div className="overflow-x-auto border p-5 px-10">
           <table className="table table-xs">
             <thead>
               <tr>
@@ -38,17 +48,26 @@ const MyList = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((info, i = 0) => (
+              {users.map((info, i=0) => (
                 <tr key={info._id}>
                   <th className="text-xl ">{(i = i + 1)}</th>
                   <td className="text-xl">{info.email}</td>
 
                   <td className="text-xl">{info.tourists_spot_name}</td>
 
-                  <td className="text-xl">{info.average_cost}</td>
-                  <td className="text-xl cursor-pointer  lg:ml-8">View Details</td>
-                  <td className="text-xl cursor-pointer lg:ml-8">Edit</td>
-                  <td className="text-xl cur  lg:ml-7 ">X</td>
+                  <td className="text-xl">{info.average_cost}$</td>
+                  <Link
+                    to={`/details/${info._id}`}
+                    className="text-xl cursor-pointer   hover:underline hover:text-blue-600"
+                  >
+                    View Details
+                  </Link>
+                  <td className="text-xl cursor-pointer hover:underline hover:text-blue-600 lg:ml-8 ">
+                    Edit
+                  </td>
+                  <td className="text-xl cursor-pointer  lg:ml-7  hover:underline hover:text-blue-600">
+                    X
+                  </td>
                 </tr>
               ))}
             </tbody>

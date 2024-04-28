@@ -52,6 +52,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -85,8 +86,7 @@ const Login = () => {
 
   return (
     <div className="min-h-[calc(100vh-250px)]">
-    
-      <PageTitle title={'Login page | MY dream Country'}></PageTitle>
+      <PageTitle title={"Login page | MY dream Country"}></PageTitle>
 
       <div className="hero min-h-screen bg-base-200 bg-base-200 px-1] lg:px-10">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -144,22 +144,22 @@ const Login = () => {
             </form>
             <p className="text-center border-b-2">or</p>
             <div className="flex items-center gap-3">
-            <button
-              onClick={handleGoogleLogin}
-              className="btn btn-primary my-4 items-center"
-            >
-              <FaGoogle className=""></FaGoogle>login with google
-            </button>
-            <button
-              onClick={handleGithubLogin}
-              className="btn btn-secondary  items-center"
-            >
-              <FaGithub className="font-bold"></FaGithub>login with Github
-            </button>
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-primary my-4 items-center"
+              >
+                <FaGoogle className=""></FaGoogle>login with google
+              </button>
+              <button
+                onClick={handleGithubLogin}
+                className="btn btn-secondary  items-center"
+              >
+                <FaGithub className="font-bold"></FaGithub>login with Github
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -39,7 +39,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -58,7 +58,6 @@ const Register = () => {
   return (
     <div className="min-h-[calc(100vh-250px)]">
       <PageTitle title={"Register page | MY dream Country"}></PageTitle>
-      
 
       <div className="hero min-h-screen bg-base-200  px-1] lg:px-10">
         <div className="hero-content flex-col lg:flex-row-reverse">

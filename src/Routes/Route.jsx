@@ -9,7 +9,6 @@ import AddTouristSport from "../pages/AddTouristSport/AddTouristSport";
 import MyList from "../pages/MyLIst/MyList";
 import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
-// import Login from "./pages/Home/Login";
 
 const Route = createBrowserRouter([
   {
@@ -28,14 +27,14 @@ const Route = createBrowserRouter([
           <PrivetRoute>
             <ViewDetails></ViewDetails>
           </PrivetRoute>
-
         ),
-        loader:({params})=>fetch(`http://localhost:5000/newtourist/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/newtourist/${params.id}`),
       },
       {
         path: "/allTourists",
         element: <AllTouristsSpot></AllTouristsSpot>,
-        loader: () => fetch("http://localhost:5000/tourist")
+        loader: () => fetch("http://localhost:5000/tourist"),
       },
       {
         path: "/addTourists",
@@ -52,7 +51,7 @@ const Route = createBrowserRouter([
             <MyList></MyList>
           </PrivetRoute>
         ),
-        loader: ()=>fetch('http://localhost:5000/tourist')
+        // loader: ()=>fetch('http://localhost:5000/user')
       },
       {
         path: "/login",

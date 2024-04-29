@@ -11,7 +11,7 @@ const Home = () => {
   const items = touristData.slice(0,6);
   // console.log(items);
   return (
-    <div className="min-h-[calc(100vh-250px)] px-5">
+    <div className="min-h-[calc(100vh-250px)] mx-10 ">
         <PageTitle title={'Home page | MY dream Country'}></PageTitle>
       <div className="">
         <Header></Header>
@@ -35,7 +35,7 @@ const Home = () => {
           or opportunities for leisure and adventure activities.
           <br />
         </p>
-        <p className="text-blue-600 text-2xl text-center my-6">
+        <p className="text-blue-600 text-2xl text-center my-6 ">
         <Typewriter
                   words={['leTs go to Top Six Tourist Spots in the World.........', 'leTs go to Top Six Tourist Spots in the World.........' ]}
                   loop={Infinity}
@@ -49,7 +49,7 @@ const Home = () => {
                 />
         </p>
       </div>
-     <div className="grid lg:grid-cols-3 grid-cols-1 gap-8">
+     <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 ">
         
      {
         

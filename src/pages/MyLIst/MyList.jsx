@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
@@ -54,7 +55,18 @@ const MyList = () => {
     <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp">
       <PageTitle title={"My List | MY dream Country"}></PageTitle>
       <h2 className="text-4xl text-center text-purple-500 animate__animated animate__bounce my-6">
-        Tourist Sport Information Table
+       
+        <Typewriter
+                  words={[' Tourist Sport Information Table', '  Tourist Sport Information Table', '  Tourist Sport Information Table']}
+                  loop={Infinity}
+                  cursor
+                  // cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  // onLoopDone={handleDone}
+                  // onType={handleType}
+                />
       </h2>
       <div>
         <div className="overflow-x-auto border p-5 px-10 animate__animated animate__slideInLeft">

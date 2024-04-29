@@ -5,7 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const AddTouristSport = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const handleAddData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -59,9 +59,9 @@ const AddTouristSport = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-250px)]">
-      <div className=" pt-10 animate__animated animate__slideInDown">
-        <div className="shadow-2xl p-5  dark:bg-[#121c26d5]">
+    <div className="min-h-[calc(100vh-250px)] mx-10 mb-10 ">
+      <div className=" pt-10  animate__animated animate__slideInDown">
+        <div className="shadow-2xl p-5 rounded  dark:bg-[#121c26d5]">
           <div className="mt-5 mb-8">
             <p className="text-center text-3xl font-semibold">
               <span className="text-[#FF497C]">

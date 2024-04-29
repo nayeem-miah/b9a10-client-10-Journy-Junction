@@ -25,7 +25,7 @@ const AllTouristCard = ({data}) => {
       } = data;
       return (
         <div>
-          <div  className="card card-compact bg-gray-700 shadow-xl" data-aos="fade-up-right"  data-aos-duration="3000">
+          <div  className="card card-compact bg-base-300  shadow-xl" data-aos="fade-up-right"  data-aos-duration="3000">
             <figure>
               <img src={image} />
             </figure>

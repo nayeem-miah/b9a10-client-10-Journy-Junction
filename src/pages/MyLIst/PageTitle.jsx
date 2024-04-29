@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const PageTitle = ({title}) => {

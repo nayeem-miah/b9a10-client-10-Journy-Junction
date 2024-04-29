@@ -5,23 +5,22 @@ import Askquesation from "../../Components/Askquesation";
 import PageTitle from "../MyLIst/PageTitle";
 import { Typewriter } from "react-simple-typewriter";
 import Optional from "../../Components/UpdatedPage/Optional/Optional";
-import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import OptionalCard from "../../Components/UpdatedPage/Optional/OptionalCard";
+
 
 const Home = () => {
   const touristData = useLoaderData();
   // console.log(touristData);
-  const items = touristData.slice(0,6);
+  const items = touristData.slice(0, 6);
   // console.log(items);
   return (
     <div className="min-h-[calc(100vh-250px)] mx-10 ">
-        <PageTitle title={'Home page | MY dream Country'}></PageTitle>
+      <PageTitle title={"Home page | MY dream Country"}></PageTitle>
       <div className="">
         <Header></Header>
       </div>
       <div className="my-10">
-        <h2 className="text-4xl my-5 text-center">
-          Tourists Spots 
-        </h2>
+        <h2 className="text-4xl my-5 text-center">Tourists Spots</h2>
         <p className="text-center">
           A tourist spot, also referred to as a tourist attraction or
           destination, is a discernible geographical location or site that has
@@ -38,33 +37,36 @@ const Home = () => {
           <br />
         </p>
         <p className="text-blue-600 text-2xl text-center my-6 ">
-        <Typewriter
-                  words={['leTs go to Top Six Tourist Spots in the World.........', 'leTs go to Top Six Tourist Spots in the World.........' ]}
-                  loop={Infinity}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1000}
-                  // onLoopDone={handleDone}
-                  // onType={handleType}
-                />
+          <Typewriter
+            words={[
+              "leTs go to Top Six Tourist Spots in the World.........",
+              "leTs go to Top Six Tourist Spots in the World.........",
+            ]}
+            loop={Infinity}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
         </p>
       </div>
-     <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 ">
-        
-     {
-        
-        items.map(data=><Card key={data._id} data={data}></Card> )
-      }
-     </div>
-   <div className="my-10 py-4 px-2 rounded-lg bg-slate-700">
-   <h2 className='text-4xl text-center my-5'>Asking Question ?</h2>
-   <Askquesation></Askquesation>
-   </div>
-   <div>
-    <Optional></Optional>
-   </div>
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 ">
+        {items.map((data) => (
+          <Card key={data._id} data={data}></Card>
+        ))}
+      </div>
+      <div className="my-10 py-4 px-2 rounded-lg bg-slate-700">
+        <h2 className="text-4xl text-center my-5">Asking Question ?</h2>
+        <Askquesation></Askquesation>
+      </div>
+      <div>
+        <Optional></Optional>
+        <OptionalCard></OptionalCard>
+     
+      </div>
     </div>
   );
 };

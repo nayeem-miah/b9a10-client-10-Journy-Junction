@@ -12,7 +12,6 @@ const MyList = () => {
   const [users, setUsers] = useState([]);
 
   const handleDelete = (id) => {
-    console.log("delete ", id);
     // are you sure
     fetch(`http://localhost:5000/myList/${id}`, {
       method: "DELETE",
@@ -46,7 +45,7 @@ const MyList = () => {
     fetch(`http://localhost:5000/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setUsers(data);
       });
   }, [user]);

@@ -1,18 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthContextProvider";
 
 const Optional = () => {
   const { user } = useContext(AuthContext);
-  const [datas, setData] = useState();
-  console.log(datas);
-  useEffect(() => {
-    fetch("http://localhost:5000/comment")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setData(data);
-      });
-  }, []);
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -68,12 +58,8 @@ const Optional = () => {
             value="submit"
           />
         </form>
-        {/* {
-          datas.map((dta,d)=> <CommentCard key={d} dta={dta}></CommentCard>)
-        } */}
+       
       </div>
-
-     
     </div>
   );
 };

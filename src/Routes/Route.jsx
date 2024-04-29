@@ -11,6 +11,7 @@ import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import UpdatedPage from "../Components/UpdatedPage/UpdatedPage";
 import Optional from "../Components/UpdatedPage/Optional/Optional";
+import OptionalCard from "../Components/UpdatedPage/Optional/OptionalCard";
 
 const Route = createBrowserRouter([
   {
@@ -53,7 +54,7 @@ const Route = createBrowserRouter([
             <MyList></MyList>
           </PrivetRoute>
         ),
-        // loader: ()=>fetch('http://localhost:5000/user')
+       
       },
       {
         path: "/login",
@@ -78,8 +79,14 @@ const Route = createBrowserRouter([
         element: (
          <PrivetRoute><Optional/></PrivetRoute>
         ),
-        // loader: ()=> fetch('http://localhost:5000/comment')
+        
       },
+      {
+        path: '/optionalCard',
+        element: <OptionalCard></OptionalCard>,
+        // loader: ()=> fetch('http://localhost:5000/comment')
+
+      }
     ],
   },
 ]);

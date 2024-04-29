@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const AddTouristSport = () => {
   const { user } = useContext(AuthContext);
@@ -63,12 +64,19 @@ const AddTouristSport = () => {
         <div className="shadow-2xl p-5  dark:bg-[#121c26d5]">
           <div className="mt-5 mb-8">
             <p className="text-center text-3xl font-semibold">
-              <span className="mr-3 text-[#FF497C]">
-                <i className="bx bxs-alarm-add"></i>
-              </span>
               <span className="text-[#FF497C]">
-                <span className="text-[#FF497C]"></span>
-                Your added Country
+                <Typewriter
+                  words={['Your added Country', ' Your added Country', ' Your added Country', ' Your added Country']}
+                  loop={Infinity}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  // onLoopDone={handleDone}
+                  // onType={handleType}
+                />
+               
               </span>
             </p>
           </div>

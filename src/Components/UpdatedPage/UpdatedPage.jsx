@@ -1,13 +1,15 @@
 import Swal from "sweetalert2";
 
 import PageTitle from "../../pages/MyLIst/PageTitle";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const UpdatedPage = () => {
   const updateDetais = useLoaderData();
-
-  console.log(updateDetais);
+  const {id} = useParams();
+console.log(id);
+  // console.log(updateDetais.image);
   const {
+    _id,
     image,
     country_Name,
     tourists_spot_name,
@@ -21,6 +23,7 @@ const UpdatedPage = () => {
     description,
   } = updateDetais;
   const handleUpdated = (e) => {
+    console.log(' button a click kora hosre', _id);
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -39,6 +42,7 @@ const UpdatedPage = () => {
       image,
       country_Name,
       tourists_spot_name,
+
       seasonality,
       location,
       email,
@@ -48,7 +52,7 @@ const UpdatedPage = () => {
       average_cost,
       description,
     };
-    // console.log(updatedTourist);
+
     fetch(`http://localhost:5000/tourist/${id}`, {
       method: "PUT",
       headers: {
@@ -58,12 +62,12 @@ const UpdatedPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        if (data.insertedId) {
+        console.log(data);
+        if (data.modifiedCount) {
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: `${tourists_spot_name} updated successfully`,
+            title: "updated successfully",
             showConfirmButton: false,
             timer: 2000,
           });
@@ -82,7 +86,9 @@ const UpdatedPage = () => {
               <span className="mr-3 text-[#FF497C]">
                 <i className="bx bxs-alarm-add"></i>
               </span>
-              <span className="text-[#ef36c4]">Your Data Updating</span>
+              <span className="text-[#ef36c4]">
+                Your Data Updating : {tourists_spot_name}
+              </span>
             </p>
           </div>
           {/* form */}

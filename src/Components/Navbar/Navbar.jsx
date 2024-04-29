@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -32,8 +33,7 @@ const Navbar = () => {
         <NavLink to="/allTourists">All Tourists Spot</NavLink>
       </li>
       <span>
-        {
-        user && (
+        {user && (
           <li>
             <NavLink to="/addTourists"> Add Tourists Spot</NavLink>
           </li>
@@ -75,7 +75,17 @@ const Navbar = () => {
             {nabLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-green-600">My dream Country</a>
+        <a className="btn btn-ghost text-2xl text-green-600">  <Typewriter
+                  words={['JourneyJunction', ' JourneyJunction', ' JourneyJunction', ' JourneyJunction']}
+                  loop={4}
+                  cursor
+                  // cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  // onLoopDone={handleDone}
+                  // onType={handleType}
+                /></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{nabLinks}</ul>

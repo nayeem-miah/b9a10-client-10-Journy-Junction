@@ -3,6 +3,7 @@ import Header from "../../Components/Header/Header";
 import Card from "../../Components/Cards/Card";
 import Askquesation from "../../Components/Askquesation";
 import PageTitle from "../MyLIst/PageTitle";
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   const touristData = useLoaderData();
@@ -35,7 +36,17 @@ const Home = () => {
           <br />
         </p>
         <p className="text-blue-600 text-2xl text-center my-6">
-          leTs go to Top Six Tourist Spots in the World.........{" "}
+        <Typewriter
+                  words={['leTs go to Top Six Tourist Spots in the World.........', 'leTs go to Top Six Tourist Spots in the World.........' ]}
+                  loop={Infinity}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  // onLoopDone={handleDone}
+                  // onType={handleType}
+                />
         </p>
       </div>
      <div className="grid lg:grid-cols-3 grid-cols-1 gap-8">

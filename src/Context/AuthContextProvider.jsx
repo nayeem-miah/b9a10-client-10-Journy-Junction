@@ -47,21 +47,20 @@ const AuthContextProvider = ({ children }) => {
     // setLoading(true)
     return signOut(auth);
   };
- 
+
   // onAuthStateChanged
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        // console.log("Inner subscribe 4")
-        console.log(user)
-        setLoading(false)
-        setUser(currentUser);
+      // console.log(user)
+      setLoading(false);
+      setUser(currentUser);
     });
-    
+
     return () => {
-        unsubscribe();
+      unsubscribe();
     };
-}, []);
-const authInfo = {
+  }, []);
+  const authInfo = {
     user,
     setUser,
     createUser,

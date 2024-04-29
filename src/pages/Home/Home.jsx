@@ -4,6 +4,7 @@ import Card from "../../Components/Cards/Card";
 import Askquesation from "../../Components/Askquesation";
 import PageTitle from "../MyLIst/PageTitle";
 import { Typewriter } from "react-simple-typewriter";
+import Optional from "../../Components/UpdatedPage/Optional/Optional";
 
 const Home = () => {
   const touristData = useLoaderData();
@@ -59,6 +60,9 @@ const Home = () => {
    <div className="my-10 py-4 px-2 rounded-lg bg-slate-700">
    <h2 className='text-4xl text-center my-5'>Asking Question ?</h2>
    <Askquesation></Askquesation>
+   </div>
+   <div>
+    <Optional></Optional>
    </div>
     </div>
   );

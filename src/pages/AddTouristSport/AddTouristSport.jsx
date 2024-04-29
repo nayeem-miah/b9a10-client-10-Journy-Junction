@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContextProvider";
 import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
+import { Navigate } from "react-router-dom";
 
 const AddTouristSport = () => {
   const { user } = useContext(AuthContext);
@@ -54,8 +55,9 @@ const AddTouristSport = () => {
             timer: 2000,
           });
         }
-
+        
         form.reset();
+        <Navigate to={'/'}></Navigate>
       });
   };
   return (
@@ -229,6 +231,7 @@ const AddTouristSport = () => {
               type="submit"
               value="Add Tourists Sport"
             />
+            
           </form>
         </div>
       </div>

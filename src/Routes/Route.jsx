@@ -10,6 +10,7 @@ import MyList from "../pages/MyLIst/MyList";
 import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import UpdatedPage from "../Components/UpdatedPage/UpdatedPage";
+import Optional from "../Components/UpdatedPage/Optional/Optional";
 
 const Route = createBrowserRouter([
   {
@@ -69,7 +70,17 @@ const Route = createBrowserRouter([
             <UpdatedPage></UpdatedPage>
           </PrivetRoute>
         ),
-        loader:({params})=> fetch(`http://localhost:5000/tourist/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tourist/${params.id}`),
+      },
+      {
+        path: "optional",
+        element: (
+          <PrivetRoute>
+            <Optional></Optional>
+          </PrivetRoute>
+        ),
+        // loader: ()=> fetch('http://localhost:5000/comment')
       },
     ],
   },

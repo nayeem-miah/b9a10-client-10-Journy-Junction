@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 import PageTitle from "../../pages/MyLIst/PageTitle";
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
 const UpdatedPage = () => {
@@ -61,7 +61,7 @@ console.log(updateDetais);
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount>0) {
           Swal.fire({
             position: "top-center",
@@ -71,10 +71,12 @@ console.log(updateDetais);
             timer: 2000,
           });
         }
-
+        
         form.reset();
+        
       });
-  };
+    };
+    
   return (
     <div className="min-h-[calc(100vh-250px)] mx-10">
       <PageTitle title={"update page | Our Dream country"}></PageTitle>

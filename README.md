@@ -1,6 +1,8 @@
 # Journey Junction
-- [ Lottie React
-](https://www.npmjs.com/package/react-simple-typewriter) 
+
+- [ Lottie React](https://www.npmjs.com/package/react-simple-typewriter)
+
+- [Aos animation](https://www.npmjs.com/package/aos)
+- [Animate.css](https://animate.style/)
 
 
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

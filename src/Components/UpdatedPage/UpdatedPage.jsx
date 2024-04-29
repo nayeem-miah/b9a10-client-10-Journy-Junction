@@ -1,13 +1,11 @@
 import Swal from "sweetalert2";
 
 import PageTitle from "../../pages/MyLIst/PageTitle";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const UpdatedPage = () => {
   const updateDetais = useLoaderData();
-  const {id} = useParams();
-console.log(id);
-  // console.log(updateDetais.image);
+console.log(updateDetais);
   const {
     _id,
     image,
@@ -23,7 +21,7 @@ console.log(id);
     description,
   } = updateDetais;
   const handleUpdated = (e) => {
-    console.log(' button a click kora hosre', _id);
+    // console.log(" button a click kora hosre", _id);
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -53,7 +51,7 @@ console.log(id);
       description,
     };
 
-    fetch(`http://localhost:5000/tourist/${id}`, {
+    fetch(`http://localhost:5000/tourist/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -63,7 +61,7 @@ console.log(id);
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount) {
+        if (data.modifiedCount>0) {
           Swal.fire({
             position: "top-center",
             icon: "success",

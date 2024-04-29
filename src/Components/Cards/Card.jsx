@@ -26,7 +26,7 @@ const Card = ({ data }) => {
   } = data;
   return (
     <div data-aos="fade-up-right"  data-aos-duration="2000">
-      <div className="card card-compact bg-gray-700 shadow-xl">
+      <div className="card card-compact bg-base-300 shadow-xl">
         <figure>
           <img src={image} />
         </figure>

@@ -6,35 +6,30 @@ const Optional = () => {
   const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
   // console.log(user);
-  const handleComment=(e)=>{
+  const handleComment = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const comment = form.comment.value;
-    const userComment = {email, comment}
+    const userComment = { email, comment };
     console.log(userComment);
     fetch("http://localhost:5000/comment", {
-      method: 'POST',
-      headers:{'content-type': 'application/json'},
-      body: JSON.stringify(userComment)
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userComment),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      
-      console.log(data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
 
-      if(user && data.insertedId){
-        alert('successfully comment')
-      }
-      
-        
-    })
-    
-  }
+        if (data.insertedId) {
+          alert("successfully comment");
+        }
+      });
+  };
   return (
     <div>
       <div>
-      
         <form onSubmit={handleComment}>
           <label htmlFor="">
             Your Comments :
@@ -50,13 +45,13 @@ const Optional = () => {
           <br />
           <p>Your Comments</p>
           <textarea
-          name="comment"
-          // typeof="textarea"
+            name="comment"
+            // typeof="textarea"
             className="textarea textarea-secondary w-full"
             placeholder="Your Comment"
           ></textarea>
           <br />
-          <input 
+          <input
             className="btn-primary btn w-full my-4"
             type="submit"
             value="submit"

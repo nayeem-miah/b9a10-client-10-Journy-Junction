@@ -143,16 +143,16 @@ const Login = () => {
               </p>
             </form>
             <p className="text-center border-b-2">or</p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1">
               <button
                 onClick={handleGoogleLogin}
-                className="btn btn-primary my-4 items-center"
+                className="btn btn-primary mx-auto my-4 items-center"
               >
                 <FaGoogle className=""></FaGoogle>login with google
               </button>
               <button
                 onClick={handleGithubLogin}
-                className="btn btn-secondary  items-center"
+                className="btn btn-secondary mx-auto items-center"
               >
                 <FaGithub className="font-bold"></FaGithub>login with Github
               </button>

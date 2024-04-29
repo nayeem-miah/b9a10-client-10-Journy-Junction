@@ -5,6 +5,7 @@ import Askquesation from "../../Components/Askquesation";
 import PageTitle from "../MyLIst/PageTitle";
 import { Typewriter } from "react-simple-typewriter";
 import Optional from "../../Components/UpdatedPage/Optional/Optional";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 const Home = () => {
   const touristData = useLoaderData();

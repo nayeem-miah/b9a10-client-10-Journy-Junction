@@ -1,11 +1,19 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Context/AuthContextProvider";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const Optional = () => {
   const { user } = useContext(AuthContext);
-  // const navigate = useNavigate();
-  // console.log(user);
+  const [datas, setData] = useState();
+  console.log(datas);
+  useEffect(() => {
+    fetch("http://localhost:5000/comment")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setData(data);
+      });
+  }, []);
+
   const handleComment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -29,6 +37,7 @@ const Optional = () => {
   };
   return (
     <div>
+      <h2 className="text-center text-4xl">Client Chronicles</h2>
       <div>
         <form onSubmit={handleComment}>
           <label htmlFor="">
@@ -40,15 +49,17 @@ const Optional = () => {
             placeholder="enter email"
             name="email"
             defaultValue={user?.email}
+            required
             className="input input-bordered input-secondary w-full my-5"
           />
           <br />
-          <p>Your Comments</p>
+          <p>Your Email</p>
           <textarea
             name="comment"
             // typeof="textarea"
             className="textarea textarea-secondary w-full"
             placeholder="Your Comment"
+            required
           ></textarea>
           <br />
           <input
@@ -57,8 +68,12 @@ const Optional = () => {
             value="submit"
           />
         </form>
+        {/* {
+          datas.map((dta,d)=> <CommentCard key={d} dta={dta}></CommentCard>)
+        } */}
       </div>
-      <div></div>
+
+     
     </div>
   );
 };

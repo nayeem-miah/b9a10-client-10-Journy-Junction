@@ -74,11 +74,9 @@ const Route = createBrowserRouter([
           fetch(`http://localhost:5000/tourist/${params.id}`),
       },
       {
-        path: "optional",
+        path: "/optional",
         element: (
-          <PrivetRoute>
-            <Optional></Optional>
-          </PrivetRoute>
+         <PrivetRoute><Optional/></PrivetRoute>
         ),
         // loader: ()=> fetch('http://localhost:5000/comment')
       },

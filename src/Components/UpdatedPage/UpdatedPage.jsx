@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 
 import PageTitle from "../../pages/MyLIst/PageTitle";
 import { useLoaderData } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const UpdatedPage = () => {
   const updateDetais = useLoaderData();
@@ -75,7 +76,7 @@ console.log(updateDetais);
       });
   };
   return (
-    <div className="min-h-[calc(100vh-250px)]">
+    <div className="min-h-[calc(100vh-250px)] mx-10">
       <PageTitle title={"update page | Our Dream country"}></PageTitle>
       <div className=" pt-10 animate__animated animate__slideInDown">
         <div className="shadow-2xl p-5  dark:bg-[#121c26d5]">
@@ -85,7 +86,17 @@ console.log(updateDetais);
                 <i className="bx bxs-alarm-add"></i>
               </span>
               <span className="text-[#ef36c4]">
-                Your Data Updating : {tourists_spot_name}
+              <Typewriter
+                  words={[` Your Data Updating : ${tourists_spot_name}`,` Your Data Updating : ${tourists_spot_name}`, ` Your Data Updating : ${tourists_spot_name}` ]}
+                  loop={Infinity}
+                  cursor
+                  // cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  // onLoopDone={handleDone}
+                  // onType={handleType}
+                />
               </span>
             </p>
           </div>

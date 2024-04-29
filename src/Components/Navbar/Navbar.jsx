@@ -92,6 +92,18 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="relative md:border-l flex items-center  justify-end w-full md:w-auto pl-3 ">
+        {/* <div className=" w-[50px]">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className=" p-1 mr-3 flex items-center"
+            >
+              <img
+                className="md:w-full   w-10 object-cover"
+                src={darkMode ? lightimg : darkimg}
+                alt=""
+              />
+            </button>
+          </div> */}
           <div className=" w-[50px]"></div>
           {!user && (
             <button className="border-2 p-1 text-white bg-[#FF497C] rounded border-[#FF497C] mr-5">

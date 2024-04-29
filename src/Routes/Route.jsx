@@ -63,9 +63,14 @@ const Route = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: '/updated',
-        element: <UpdatedPage></UpdatedPage>
-      }
+        path: "/updated/:id",
+        element: (
+          <PrivetRoute>
+            <UpdatedPage></UpdatedPage>
+          </PrivetRoute>
+        ),
+        loader:({params})=> fetch(`http://localhost:5000/tourist/${params.id}`)
+      },
     ],
   },
 ]);

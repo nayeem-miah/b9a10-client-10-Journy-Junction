@@ -9,41 +9,39 @@ import Swal from "sweetalert2";
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
   const [users, setUsers] = useState([]);
-  
-  const handleDelete=id=>{
-    console.log('delete ',id);
+
+  const handleDelete = (id) => {
+    console.log("delete ", id);
     // are you sure
-    fetch(`http://localhost:5000/myList/${id}`,{
-        method: 'DELETE',
+    fetch(`http://localhost:5000/myList/${id}`, {
+      method: "DELETE",
     })
-    .then(res=> res.json())
-    .then(data=>{
-        if(data.deletedCount>0){
-            Swal.fire({
-                title: "Are you sure?",
-                text: "this form is deleted",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                  });
-                }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "this form is deleted",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
               });
-            const remaining = users.filter(info=>info._id !== id)
-            setUsers(remaining)
+            }
+          });
+          const remaining = users.filter((info) => info._id !== id);
+          setUsers(remaining);
         }
-    })
-
-
-  }
-    useEffect(() => {
+      });
+  };
+  useEffect(() => {
     fetch(`http://localhost:5000/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
@@ -51,7 +49,7 @@ const MyList = () => {
         setUsers(data);
       });
   }, [user]);
-//   console.log(data);
+  //   console.log(data);
   return (
     <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp">
       <PageTitle title={"My List | MY dream Country"}></PageTitle>
@@ -93,20 +91,30 @@ const MyList = () => {
                   <td className="text-xl">{info.tourists_spot_name}</td>
 
                   <td className="text-xl">{info.average_cost}$</td>
-                  <Link
-                    to={`/details/${info._id}`}
-                    className="text-xl cursor-pointer   hover:underline hover:text-blue-600"
-                  >
-                    View Details
-                  </Link>
-                  <td className="text-xl cursor-pointer hover:underline hover:text-blue-600 lg:ml-8 ">
-                    <FaEdit></FaEdit>
+                  <td>
+                    <Link
+                      to={`/details/${info._id}`}
+                      className="text-xl cursor-pointer   hover:underline hover:text-blue-600"
+                    >
+                      View Details
+                    </Link>
                   </td>
-                 
-                    <button onClick={()=>{handleDelete(info._id)}} className="text-xl cursor-pointer  lg:ml-7   hover:underline hover:text-red-600">
-                     <MdDelete></MdDelete>
+                  <td className="text-xl cursor-pointer hover:underline hover:text-blue-600 lg:ml-8 ">
+                    <Link to={`/updated/${info._id}`}>
+                      <FaEdit></FaEdit>
+                    </Link>
+                  </td>
+
+                  <td>
+                    <button
+                      onClick={() => {
+                        handleDelete(info._id);
+                      }}
+                      className="text-xl cursor-pointer  lg:ml-7   hover:underline hover:text-red-600"
+                    >
+                      <MdDelete></MdDelete>
                     </button>
-                 
+                  </td>
                 </tr>
               ))}
             </tbody>

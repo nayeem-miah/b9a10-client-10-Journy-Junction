@@ -80,7 +80,7 @@ const AddTouristSport = () => {
                 <input
                   className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                   type="text"
-                  placeholder="image"
+                  placeholder="image Link"
                   name="image"
                   required
                 />
@@ -98,9 +98,6 @@ const AddTouristSport = () => {
                   name="country_Name"
                   required
                 >
-                  <option value="Bangladesh" selected>
-                    Bangladesh
-                  </option>
                   <option value="Thailand" selected>
                     Thailand
                   </option>
@@ -115,6 +112,9 @@ const AddTouristSport = () => {
                   </option>
                   <option value="Cambodia" selected>
                     Cambodia
+                  </option>
+                  <option value="Bangladesh" selected>
+                    Bangladesh
                   </option>
                 </select>
 

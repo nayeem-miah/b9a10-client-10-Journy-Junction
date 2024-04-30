@@ -61,7 +61,7 @@ const   AddTouristSport = () => {
       });
   };
   return (
-    <div className="min-h-[calc(100vh-250px)] mx-10 mb-10 ">
+    <div className="min-h-[calc(100vh-250px)] lg:mx-10 mx-2 mb-10 ">
       <div className=" pt-10  animate__animated animate__slideInDown">
         <div className="shadow-2xl p-5 rounded  dark:bg-[#121c26d5]">
           <div className="mt-5 mb-8">
@@ -84,7 +84,7 @@ const   AddTouristSport = () => {
           </div>
           {/* form */}
           <form onSubmit={handleAddData}>
-            <div className="flex gap-8 ">
+            <div className=" flex gap-8 ">
               <div className="flex-1">
                 <label className="block mb-2 dark:text-white">image</label>
                 <input

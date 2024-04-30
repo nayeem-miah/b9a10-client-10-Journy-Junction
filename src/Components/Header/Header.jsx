@@ -29,14 +29,14 @@ const Header = () => {
       loop={true}
     >
       <SwiperSlide>
-      <div className="w-full my-5"><img className="w-full   min-h-screen rounded" src={img1}/></div> 
+      <div className="w-full my-10"><img className="w-full h-auto rounded"  src={img1}/></div> 
       </SwiperSlide>
-      <SwiperSlide>  <div className="w-full my-5"><img className="w-full   min-h-screen rounded" src={img2}/></div> </SwiperSlide>
+      <SwiperSlide>  <div className="w-full my-10"><img className="w-full h-auto rounded"  src={img2}/></div> </SwiperSlide>
       <SwiperSlide>
-      <div className="w-full my-5"><img className="w-full   min-h-screen rounded" src={img3}/></div> 
+      <div className="w-full my-10"><img className="w-full h-auto rounded"  src={img3}/></div> 
       </SwiperSlide> 
       <SwiperSlide>
-      <div className="w-full my-5"><img className="w-full  min-h-screen rounded" src={img4}/></div> 
+      <div className="w-full my-10"><img className="w-full h-auto rounded" src={img4}/></div> 
       </SwiperSlide>
     </Swiper>
   );

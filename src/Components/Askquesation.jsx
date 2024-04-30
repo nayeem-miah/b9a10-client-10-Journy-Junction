@@ -8,7 +8,7 @@ const Askquesation = () => {
         Aos.init();
       },[])
   return (
-    <div className="grid grid-cols-2 gap-6 my-10 "data-aos="fade-up-left"  data-aos-duration="2000">
+    <div className="grid lg:grid-cols-2 gap-6 my-10 " data-aos="fade-up-downy"  data-aos-duration="2000">
       <div>
         <img src={img} className="rounded" alt="" />
       </div>

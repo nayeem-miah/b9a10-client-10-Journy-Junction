@@ -14,7 +14,7 @@ const Home = () => {
   const items = touristData.slice(0, 6);
   // console.log(items);
   return (
-    <div className="min-h-[calc(100vh-250px)] mx-10 ">
+    <div className="min-h-[calc(100vh-250px)] lg:mx-10 mx-2 ">
       <PageTitle title={"Home page | MY dream Country"}></PageTitle>
       <div className="">
         <Header></Header>
@@ -58,7 +58,7 @@ const Home = () => {
           <Card key={data._id} data={data}></Card>
         ))}
       </div>
-      <div className="my-10 py-4 px-2 rounded-lg bg-slate-700">
+      <div className="my-10 py-4  px-2 rounded-lg bg-slate-700">
         <h2 className="text-4xl text-center my-5">Asking Question ?</h2>
         <Askquesation></Askquesation>
       </div>

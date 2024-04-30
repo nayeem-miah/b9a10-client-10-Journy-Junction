@@ -78,7 +78,7 @@ console.log(updateDetais);
     };
     
   return (
-    <div className="min-h-[calc(100vh-250px)] mx-10">
+    <div className="min-h-[calc(100vh-250px)] lg:mx-10 mx-2">
       <PageTitle title={"update page | Our Dream country"}></PageTitle>
       <div className=" pt-10 animate__animated animate__slideInDown">
         <div className="shadow-2xl p-5  dark:bg-[#121c26d5]">

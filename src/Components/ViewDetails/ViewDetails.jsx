@@ -25,7 +25,7 @@ const ViewDetails = () => {
     <div className="my-10"> 
     <PageTitle title={'View Details | MY dream Country'}></PageTitle>
     <h2 className="text-center font-bold animate__animated animate__bounce text-4xl my-4">View Details of TourViewpoint</h2>
-      <div className=" bg-base-300 mx-10 shadow-xl ">
+      <div className=" bg-base-300 lg:mx-10 mx-2 shadow-xl ">
         <div>
           <figure>
             <img src={image} className="p-8 w-full h-full" />

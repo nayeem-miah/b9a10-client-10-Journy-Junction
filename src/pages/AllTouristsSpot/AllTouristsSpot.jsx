@@ -13,7 +13,7 @@ const AllTouristsSpot = () => {
         All Tourist Sport
       </h2>
 
-      <div className="grid lg:grid-cols-3 grid-cols-1 mx-10 gap-8 my-8">
+      <div className="grid lg:grid-cols-3 grid-cols-1 lg:mx-10 mx-2 gap-8 my-8">
         {items.map((data) => (
           <AllTouristCard key={data._id} data={data}></AllTouristCard>
         ))}

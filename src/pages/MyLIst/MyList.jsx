@@ -51,7 +51,7 @@ const MyList = () => {
   }, [user]);
   //   console.log(data);
   return (
-    <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp  mx-10">
+    <div className="min-h-[calc(100vh-250px)] my-5 animate__animated animate__slideInUp  lg:mx-10 mx-2">
       <PageTitle title={"My List | MY dream Country"}></PageTitle>
       <h2 className="text-4xl text-center text-purple-500 animate__animated animate__bounce my-6">
        

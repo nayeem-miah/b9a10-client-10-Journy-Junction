@@ -4,10 +4,10 @@
 // import { AuthContext } from "../../../Context/AuthContextProvider";
 
 const OptionalCard = () => {
-//   const { user } = useContext(AuthContext);
-//   console.log(user);
+  //   const { user } = useContext(AuthContext);
+  //   console.log(user);
   //   useEffect(() => {
-  //     fetch("http://localhost:5000/comment")
+  //     fetch("https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/comment")
   //       .then((res) => res.json())
   //       .then((data) => {
   //         // console.log(data);
@@ -19,6 +19,8 @@ const OptionalCard = () => {
 
   return (
     <div className="my-8">
+      <h2 className="text-center text-4xl my-4">Client Chronicles</h2>
+
       <div className="grid grid-cols-3 gap-4">
         <div className="container flex flex-col w-full  p-6  divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
           <div className="flex justify-between p-4">
@@ -44,7 +46,7 @@ const OptionalCard = () => {
               >
                 <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
               </svg>
-              <span className="text-xl font-bold">4.5</span>
+              <span className="text-xl font-bold">4</span>
             </div>
           </div>
           <div className="p-4 space-y-2 text-sm dark:text-gray-600">

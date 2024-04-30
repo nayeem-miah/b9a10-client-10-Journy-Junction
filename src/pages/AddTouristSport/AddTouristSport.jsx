@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
 import { Navigate } from "react-router-dom";
 
-const AddTouristSport = () => {
+const   AddTouristSport = () => {
   const { user } = useContext(AuthContext);
   // console.log(user);
   const handleAddData = (e) => {
@@ -36,7 +36,7 @@ const AddTouristSport = () => {
       description,
     };
     // console.log(newTourist);
-    fetch("http://localhost:5000/tourist", {
+    fetch("https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/tourist", {
       method: "POST",
       headers: {
         "content-type": "application/json",

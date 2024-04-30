@@ -13,7 +13,7 @@ const MyList = () => {
 
   const handleDelete = (id) => {
     // are you sure
-    fetch(`http://localhost:5000/myList/${id}`, {
+    fetch(`https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/myList/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ const MyList = () => {
       });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/myList/${user?.email}`)
+    fetch(`https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

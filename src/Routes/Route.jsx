@@ -10,7 +10,7 @@ import MyList from "../pages/MyLIst/MyList";
 import PrivetRoute from "../pages/PrivetRoute/PrivetRoute";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import UpdatedPage from "../Components/UpdatedPage/UpdatedPage";
-import Optional from "../Components/UpdatedPage/Optional/Optional";
+// import Optional from "../Components/UpdatedPage/Optional/Optional";
 import OptionalCard from "../Components/UpdatedPage/Optional/OptionalCard";
 
 const Route = createBrowserRouter([
@@ -22,7 +22,7 @@ const Route = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/tourist"),
+        loader: () => fetch("https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/tourist"),
       },
       {
         path: "/details/:id",
@@ -32,12 +32,12 @@ const Route = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/newtourist/${params.id}`),
+          fetch(`https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/newtourist/${params.id}`),
       },
       {
         path: "/allTourists",
         element: <AllTouristsSpot></AllTouristsSpot>,
-        loader: () => fetch("http://localhost:5000/tourist"),
+        loader: () => fetch("https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/tourist"),
       },
       {
         path: "/addTourists",
@@ -72,19 +72,19 @@ const Route = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tourist/${params.id}`),
+          fetch(`https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/tourist/${params.id}`),
       },
-      {
-        path: "/optional",
-        element: (
-         <PrivetRoute><Optional/></PrivetRoute>
-        ),
+      // {
+      //   path: "/optional",
+      //   element: (
+      //    <PrivetRoute><Optional/></PrivetRoute>
+      //   ),
         
-      },
+      // },
       {
         path: '/optionalCard',
         element: <OptionalCard></OptionalCard>,
-        // loader: ()=> fetch('http://localhost:5000/comment')
+        // loader: ()=> fetch('https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/comment')
 
       }
     ],

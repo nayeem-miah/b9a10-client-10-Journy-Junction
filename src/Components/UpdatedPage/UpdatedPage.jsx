@@ -52,7 +52,7 @@ console.log(updateDetais);
       description,
     };
 
-    fetch(`http://localhost:5000/tourist/${_id}`, {
+    fetch(`https://b9-a10-tourism-management-of-my-dream-country-server.vercel.app/tourist/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

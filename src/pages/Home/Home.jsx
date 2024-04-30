@@ -4,7 +4,7 @@ import Card from "../../Components/Cards/Card";
 import Askquesation from "../../Components/Askquesation";
 import PageTitle from "../MyLIst/PageTitle";
 import { Typewriter } from "react-simple-typewriter";
-import Optional from "../../Components/UpdatedPage/Optional/Optional";
+// import Optional from "../../Components/UpdatedPage/Optional/Optional";
 import OptionalCard from "../../Components/UpdatedPage/Optional/OptionalCard";
 
 
@@ -63,7 +63,7 @@ const Home = () => {
         <Askquesation></Askquesation>
       </div>
       <div>
-        <Optional></Optional>
+        {/* <Optional></Optional> */}
         <OptionalCard></OptionalCard>
      
       </div>
